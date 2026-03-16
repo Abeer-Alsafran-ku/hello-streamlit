@@ -78,7 +78,7 @@ log = logging.getLogger(__name__)
 def search_flights_amadeus(origin: str, destination: str, dep_date: str, adults: int = 1):
     """Return list of price dicts using Amadeus API, or None on failure."""
     try:
-        from amadeus import Client, ResponseError  # type: ignore
+        from amadeus import Client  # type: ignore
 
         amadeus = Client(
             client_id=os.environ["AMADEUS_CLIENT_ID"],

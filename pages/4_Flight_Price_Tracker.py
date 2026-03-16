@@ -2,9 +2,6 @@ import streamlit as st
 import pandas as pd
 import json
 import os
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
 from datetime import date, datetime, timedelta
 import time
 
@@ -53,7 +50,7 @@ def save_watchlist(watchlist):
 def search_flights_amadeus(origin, destination, dep_date, adults=1):
     """Search flights via Amadeus API (requires AMADEUS_CLIENT_ID and AMADEUS_CLIENT_SECRET env vars)."""
     try:
-        from amadeus import Client, ResponseError
+        from amadeus import Client  # type: ignore
 
         amadeus = Client(
             client_id=os.environ["AMADEUS_CLIENT_ID"],
